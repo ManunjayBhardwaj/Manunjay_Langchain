@@ -1,1 +1,14 @@
+# Core libraries
+langchain>=0.1.0
+openai>=1.0.0  # Required for ChatOpenAI wrapper (used for Groq)
+streamlit>=1.25.0
 
+# For local model support (if using Ollama)
+langchain-community>=0.0.20
+ollama>=0.1.7  # Optional, if you're using Ollama locally
+
+# Genius lyrics API wrapper
+lyricsgenius>=3.0.1
+
+# Optional: suppress some warnings
+warnings  # No pip install needed, part of stdlib
