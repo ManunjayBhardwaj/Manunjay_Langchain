@@ -8,6 +8,8 @@ This Jupyter Notebook explores how to use **LangChain** with local LLMs (such as
 - 🔥 **Understanding `temperature`**: Learn how this parameter changes the randomness and creativity of LLM outputs.
 - 💬 **LLM Invocation Example**: See how to call a language model using LangChain and Ollama.
 - 🔄 **LLM Chains**: Utilize prompt templates and chains for more structured interactions.
+- 🧠 **Memory in LangChain**: Understand how conversational memory is used to maintain context.
+- 🤖 **Using Agents**: Learn how to build dynamic workflows using LangChain agents.
 
 ## 📂 Repository Contents
 
@@ -49,4 +51,4 @@ Check out other **LangChain projects** in this repository to see additional appl
 
 ---
 
-📁 *This README was auto-generated from the `langchain.ipynb` notebook.*
+📁 Manunjay Bhardwaj
