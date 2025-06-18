@@ -19,7 +19,7 @@ This project uses **LangChain**, **Genius API**, and **LLMs (Ollama/Groq)** to:
 
 ## 📂 Files
 
-- `main.py` or notebook: Core logic
+- `app.py` or notebook: Core logic
 - `README.md`: This file
 - `requirements.txt`: Python dependencies
 
