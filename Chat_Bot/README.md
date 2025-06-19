@@ -3,6 +3,11 @@
 A Streamlit-based chatbot that leverages **LangChain**, **Groq's LLaMA3-70B** model (OpenAI-compatible), and **LangSmith** for tracing. It provides helpful responses to user queries in a clean, interactive web app.
 
 ---
+## 🚀 Working link
+
+-https://manunjay-chat-bot.streamlit.app
+
+---
 
 ## 🚀 Features
 
