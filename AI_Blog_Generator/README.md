@@ -42,7 +42,10 @@ pip install -r requirements.txt
 ```text
 streamlit
 langchain
+langchain-community
 openai
+tiktoken
+requests
 ```
 
 ### 3. Set your API Key
