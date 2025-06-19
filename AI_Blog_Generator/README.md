@@ -89,11 +89,9 @@ Visit [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## 🖼 Screenshots
+## 🖼 Screenshot
+<img width="931" alt="Screenshot 2025-06-19 at 1 56 58 PM" src="https://github.com/user-attachments/assets/a510cbf7-0caa-4a99-af94-9bf4d209addc" />
 
-| Input | Output |
-|-------|--------|
-| ![Input](screenshots/input.png) | ![Output](screenshots/output.png) |
 
 ---
 
