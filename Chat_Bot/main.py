@@ -1,41 +1,43 @@
+import os
+import streamlit as st
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-import streamlit as st
-import os
-from dotenv import load_dotenv
-load_dotenv() # to load the .env file
 
-# environment variables call
-os.environ['OPENAI_API_KEY'] = "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"
+# Load environment variables
+load_dotenv()
 
-# Langsmith tracking
-os.environ['LANGCHAIN_API_KEY'] = "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"
-os.environ['LANGCHAIN_TRACING_V2']="true"
+# Set up secrets securely
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+os.environ['LANGCHAIN_API_KEY'] = st.secrets["LANGCHAIN_API_KEY"]
+os.environ['LANGCHAIN_TRACING_V2'] = "true"
 
+# Streamlit app UI
+st.set_page_config(page_title="🧠 Chatbot by Manunjay")
+st.title("🤖 ChatBot By Manunjay 😎")
+input_txt = st.text_input("Ask a question or search a topic:")
 
-# Creating Chatbot
-prompt=ChatPromptTemplate.from_messages([
-    ("system","You are a help full assistant,Please provide response to the user queries"),
-    ("user","Question:{question}")
-    ]
-)
+# Prompt template
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant. Answer the user's question clearly and concisely."),
+    ("user", "Question: {question}")
+])
 
-# streamlit framework
-st.title("ChatBot By Manunjay 😎")
-input_txt=st.text_input("Search the topic you are looking for")
-
-# open ai llm call
+# Groq (LLaMA3) model setup
 llm = ChatOpenAI(
     model="llama3-70b-8192",
-    openai_api_key="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",
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
     openai_api_base="https://api.groq.com/openai/v1",
     temperature=0.7
 )
+
 output_parser = StrOutputParser()
+chain = prompt | llm | output_parser
 
-# chain
-chain=prompt|llm|output_parser
-
+# Run chain on input
 if input_txt:
-    st.write(chain.invoke({'question':input_txt}))
+    with st.spinner("Thinking..."):
+        response = chain.invoke({'question': input_txt})
+        st.success("✅ Answer:")
+        st.markdown(response)
