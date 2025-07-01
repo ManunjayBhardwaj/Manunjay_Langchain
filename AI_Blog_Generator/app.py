@@ -8,9 +8,8 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 # ----------------------- Setup LLM -----------------------
 llm = ChatOpenAI(
-    model="llama3-70b-8192",
-    openai_api_key="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",  # Replace with your Groq API key
-    openai_api_base="https://api.groq.com/openai/v1",
+    model="gpt-4.1",  # GPT-4.1 model ID on OpenAI
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
     temperature=0.7
 )
 
@@ -42,7 +41,7 @@ blog_generator_chain = SequentialChain(
 st.set_page_config(page_title="🧠 AI Blog Generator", layout="centered")
 
 st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🧠 AI Blog Generator</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Create amazing blog articles using <strong>LLaMA3</strong> + <strong>LangChain</strong> 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Create amazing blog articles using <strong>GPT-4.1</strong> + <strong>LangChain</strong> 🚀</p>", unsafe_allow_html=True)
 
 topic = st.text_input("🎯 Enter a blog topic", placeholder="e.g., The Future of Renewable Energy")
 
@@ -70,7 +69,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown("""
 <div style='text-align: center; font-size: 0.9em; color: gray;'>
     Made with ❤️ using <a href="https://www.langchain.com" target="_blank">LangChain</a> +
-    <a href="https://groq.com" target="_blank">Groq</a> by
+    <a href="https://openai.com" target="_blank">OpenAI</a> by
     <a href="https://github.com/ManunjayBhardwaj" target="_blank">Manunjay Bhardwaj</a>
 </div>
 """, unsafe_allow_html=True)
