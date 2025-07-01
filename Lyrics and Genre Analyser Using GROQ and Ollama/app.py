@@ -8,17 +8,17 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 # --- SETUP ---
 
-GENIUS_API_KEY = "6zjxdsJMvjbAOVYWfIJ0o2cb5y_Dx0mWXwg_7aJDfKpBcr4VrNBAfN_TPZE4Ob2y"
-GROQ_API_KEY = "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"
+# Load API keys from Streamlit secrets
+GENIUS_API_KEY = st.secrets["GENIUS_API_KEY"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 # Genius client
 genius = lyricsgenius.Genius(GENIUS_API_KEY, remove_section_headers=True)
 
-# Groq LLM
+# OpenAI LLM (GPT-4.1)
 llm = ChatOpenAI(
-    model="llama3-70b-8192",
-    openai_api_key=GROQ_API_KEY,
-    openai_api_base="https://api.groq.com/openai/v1",
+    model="gpt-4-1106-preview",  # GPT-4.1 model
+    openai_api_key=OPENAI_API_KEY,
     temperature=0.7
 )
 
@@ -40,8 +40,9 @@ overall_chain = SequentialChain(
 
 # --- STREAMLIT UI ---
 
-st.title("🎵 Lyrics Genre Classifier with Groq + Genius")
-st.markdown("Get song lyrics, summarize them, and identify the genre using LLaMA3 (Groq).")
+st.set_page_config(page_title="🎵 Lyrics Genre Classifier", layout="centered")
+st.title("🎵 Lyrics Genre Classifier with OpenAI + Genius")
+st.markdown("Get song lyrics, summarize them, and identify the genre using **GPT-4.1** from **OpenAI**.")
 
 song_name = st.text_input("Enter Song Name", value="Bulleya")
 artist_name = st.text_input("Enter Artist Name", value="Arijit Singh")
