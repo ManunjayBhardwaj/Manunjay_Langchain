@@ -28,7 +28,7 @@ prompt = ChatPromptTemplate.from_messages([
 llm = ChatOpenAI(
     model="gpt-4.1",
     openai_api_key=st.secrets["OPENAI_API_KEY"],
-    openai_api_base="https://api.groq.com/openai/v1",
+    openai_api_base="https://api.openai.com/v1",
     temperature=0.7
 )
 
