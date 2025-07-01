@@ -26,7 +26,7 @@ prompt = ChatPromptTemplate.from_messages([
 
 # Groq (LLaMA3) model setup
 llm = ChatOpenAI(
-    model="llama3-70b-8192",
+    model="gpt-4.1",
     openai_api_key=st.secrets["OPENAI_API_KEY"],
     openai_api_base="https://api.groq.com/openai/v1",
     temperature=0.7
